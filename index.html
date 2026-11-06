@@ -169,19 +169,6 @@ p{margin:0}
 .g-land{fill:var(--g-land,#ddd);stroke:var(--g-border,#999);stroke-width:.8px;stroke-linejoin:round}
 .g-lake{fill:var(--g-lake,#cde)}
 
-.how-band{padding-block:clamp(56px,8vw,120px)}
-.how-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,80px);align-items:start}
-.how-copy>p{margin-top:16px;color:var(--ink-2);max-width:30em;font-size:1.05rem}
-.how-copy .weights{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px;margin:clamp(24px,3vw,36px) 0 26px}
-.textlink{display:inline-flex;align-items:center;gap:8px;font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
-.textlink:hover{color:var(--accent)}
-.how-sample{background:var(--paper);border-radius:var(--r-lg);padding:clamp(18px,2.4vw,28px)}
-.sample-cap{font-size:.9rem;color:var(--ink-2);padding-bottom:4px}
-.end-band{background:var(--band);color:var(--band-ink);padding-block:clamp(56px,7vw,100px)}
-.end{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:space-between}
-.end-btns{display:flex;flex-wrap:wrap;gap:12px}
-.end-band .btn.pri{background:var(--band-accent);color:var(--band-accent-ink)}
-.end-band .btn.pri:hover{box-shadow:0 0 0 4px var(--band-tile-h)}
 
 /* ───────── Wizard ───────── */
 .shell{display:grid;grid-template-columns:minmax(220px,268px) minmax(0,1fr);gap:clamp(28px,5vw,72px);padding-block:clamp(20px,4vw,48px) clamp(48px,7vw,88px)}
@@ -434,8 +421,6 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
 .weights li{border-top:4px solid var(--ink);padding:12px 2px 0;margin:0}
 .weights .num{display:block;font-size:3.2rem;line-height:.85;color:var(--ink)}
 .weights b{display:block;margin-top:6px;font-size:.98rem}.weights span.d{font-size:.86rem;color:var(--ink-2);line-height:1.4;display:block;margin-top:4px}
-.how-copy .weights .num{font-size:4rem}
-.how-copy .weights li:first-child{border-top-color:var(--accent)}
 .tbl{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:.96rem;max-width:44em}
 .tbl th,.tbl td{text-align:left;padding:11px 12px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
 .tbl th{font-weight:700;font-size:.86rem;color:var(--ink-3);padding-top:0}
@@ -484,7 +469,7 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
   .rail li:not(.cur) .rl{display:none}
   .rail li.cur .rl{position:absolute;left:0;right:0;top:40px;font-size:.92rem}
   .rail{padding-bottom:30px}
-  .atlas-grid,.how-grid{grid-template-columns:minmax(0,1fr)}
+  .atlas-grid{grid-template-columns:minmax(0,1fr)}
   .atlas-copy{display:contents}
   .atlas-grid{gap:0}
   .atlas-grid h2{order:1}.atlas-lead{order:2}.atlas{order:3;margin-top:24px}.cty-list{order:4}
@@ -509,9 +494,6 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
   .summary{flex-wrap:nowrap;overflow-x:auto;margin-inline:calc(-1 * max(var(--gutter),env(safe-area-inset-left,0px)));padding-inline:max(var(--gutter),env(safe-area-inset-left,0px));scrollbar-width:none}
   .summary::-webkit-scrollbar{display:none}
   .summary button{white-space:nowrap}
-  .end{flex-direction:column;align-items:flex-start}
-  .end-btns{width:100%}
-  .end-btns .btn{flex:1 1 220px}
 }
 @media (max-width:520px){
   .site .wrap{gap:10px}
@@ -524,8 +506,6 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
   .cty-list{grid-template-columns:minmax(0,1fr)}
   .atlas-inset{width:30%}
   .res{padding:18px 16px}
-  .how-sample{padding:16px}
-  .how-copy .weights .num{font-size:3.2rem}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
@@ -534,7 +514,6 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
 @media print{.site nav,.icon-btn,.nav,.rail{display:none}}
 
 /* ───────── Skifinder ───────── */
-.ski-band{padding-block:clamp(56px,8vw,120px);background:var(--sunk)}
 @media (min-width:1180px){.choose{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1240px}}
 .opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;border:0;margin:0;padding:0;min-width:0}
 .opt{position:relative;display:block;cursor:pointer;min-width:0}
@@ -663,52 +642,6 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
           <div class="atlas-inset" id="atlas-inset"></div>
           <figcaption id="atlas-cap">Größere Punkte: mehr Pistenkilometer. Kartengrundlage: Natural Earth.</figcaption>
         </figure>
-      </div>
-    </section>
-    <section class="band how-band" aria-labelledby="how-h">
-      <div class="wrap how-grid">
-        <div class="how-copy">
-          <h2 id="how-h">So entsteht deine Rangliste</h2>
-          <p>Jedes Gebiet bekommt eine Match-Quote von 0 bis 100. Vier Teile fließen ein, gewichtet nach dem, was bei der Wahl am meisten zählt.</p>
-          <ul class="weights">
-            <li><span class="num">45</span><b>Level</b><span class="d">Wie gut der Pistenmix zu deinem Können passt.</span></li>
-            <li><span class="num">25</span><b>Deine Angaben</b><span class="d">Was die Textanalyse aus deinen Worten liest.</span></li>
-            <li><span class="num">15</span><b>Nähe</b><span class="d">Luftlinie ab deinem Startort.</span></li>
-            <li><span class="num">15</span><b>Preis</b><span class="d">Wie weit das Gebiet unter deinem Budget bleibt.</span></li>
-          </ul>
-          <a class="textlink" href="#methodik">Die Bewertung im Detail<svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></a>
-        </div>
-        <div class="how-sample">
-          <p class="sample-cap" id="sample-cap">So sieht ein Ergebnis aus</p>
-          <ol class="list sample" id="sample"></ol>
-        </div>
-      </div>
-    </section>
-    <section class="band ski-band" aria-labelledby="ski-h">
-      <div class="wrap how-grid">
-        <div class="how-copy">
-          <h2 id="ski-h">Auch der passende Ski</h2>
-          <p>Der Skifinder vergleicht Modelle mit deinen Maßen und deinem Fahrstil. Jeder Teil ist eine Glockenkurve um den Wert, der zu dir passt.</p>
-          <ul class="weights">
-            <li><span class="num">30</span><b>Gelände</b><span class="d">Taillenbreite passend zu Piste, Gelände und Schnee.</span></li>
-            <li><span class="num">20</span><b>Schwung</b><span class="d">Radius passend zu kurzen oder langen Bögen.</span></li>
-            <li><span class="num">20</span><b>Niveau</b><span class="d">Anspruch des Skis zu Können, Gewicht und Statur.</span></li>
-            <li><span class="num">20</span><b>Charakter</b><span class="d">Agil und verspielt oder ruhig und stabil.</span></li>
-            <li><span class="num">10</span><b>Länge</b><span class="d">Wie nah eine lieferbare Länge an deiner liegt.</span></li>
-            <li><span class="num">+15</span><b>Freestyle</b><span class="d">Nur mit Park-Wunsch, die anderen Teile sinken dann.</span></li>
-          </ul>
-          <a class="textlink" href="#methodik">Die Bewertung im Detail<svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></a>
-        </div>
-        <div class="how-sample">
-          <p class="sample-cap" id="ski-sample-cap">So sieht ein Ergebnis aus</p>
-          <ol class="list sample" id="ski-sample"></ol>
-        </div>
-      </div>
-    </section>
-    <section class="band end-band" aria-labelledby="end-h">
-      <div class="wrap end">
-        <h2 id="end-h">Bereit für die erste Abfahrt?</h2>
-        <div class="end-btns" id="end-btns"></div>
       </div>
     </section>
   </section>
@@ -2157,17 +2090,6 @@ function paintSki() {
   renderRail("ski-ergebnis");
 }
 
-/** Beispiel auf der Startseite: echte Berechnung mit einem festen Beispielprofil */
-function buildSkiSample() {
-  const box = $("#ski-sample"); if (!box || box.firstChild) return;
-  const q = { sex: "m", height: 178, weight: 74, build: "normal", level: "Fortgeschritten", off: 30, snow: "mix", turn: "mid", style: "dyn", park: false };
-  const r = skiRecommend(q);
-  if (!r.pool.length) return;
-  box.append(skiItem(r.pool[0], 0, q, { sample: true }));
-  const cap = $("#ski-sample-cap");
-  if (cap) cap.textContent = `Beispiel: 178 cm, 74 kg, fortgeschritten, 30 % abseits der Piste, mittlere Schwünge, sportlich. Platz 1 von ${fmt0(r.total)} Modellen.`;
-}
-
 /* Inhaltsseiten: Methodik, Datenstand, Datenschutz, Impressum */
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const backLink = () => `<a class="back" href="#start"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg>Zur Startseite</a>`;
@@ -2333,22 +2255,6 @@ function buildChoose() {
     mk("piste", "Nur Pistenfinder", "Passende Gebiete mit Pistenmix, Entfernung und Tagesticket-Preis.", "ticket", "Tagesticket"),
     mk("trip", "Komplette Reise", "Gebiet, Tickets und Hotel innerhalb eines Gesamtbudgets.", "bed", "Ticket und Hotel"),
     mk("ski", "Skifinder", "Den passenden Ski nach Größe, Gewicht, Fahrstil und Gelände.", "ski", "Ski"));
-  const end = $("#end-btns");
-  if (end) end.replaceChildren(
-    h("button", { type: "button", class: "btn pri", onclick: () => start("piste") }, icon("ticket"), "Nur Pistenfinder"),
-    h("button", { type: "button", class: "btn light", onclick: () => start("trip") }, icon("bed"), "Komplette Reise"),
-    h("button", { type: "button", class: "btn light", onclick: () => start("ski") }, icon("ski"), "Skifinder"));
-}
-/** Beispiel-Ergebnis auf der Startseite: echte Berechnung mit einem festen Beispielprofil */
-function buildSample() {
-  const box = $("#sample"); if (!box || box.firstChild) return;
-  const c = CITIES.find(x => x[0] === "München"); if (!c) return;
-  const p = { mode: "piste", level: "Fortgeschritten", years: null, text: "große Gebiete mit vielen Pistenkilometern", loc: { la: c[2], lo: c[3], label: "München", t: "München" }, radius: 300, country: "all", glacier: "any", budget: 0, nights: 4 };
-  const r = recommend(p);
-  if (!r.pool.length) return;
-  box.append(resultItem(r.pool[0], 0, p, { sample: true }));
-  const cap = $("#sample-cap");
-  if (cap) cap.textContent = `Beispiel: fortgeschritten, Start in München, bis 300 km, Wunsch „große Gebiete“. Platz 1 von ${fmt0(r.total)} passenden Gebieten.`;
 }
 /** Inhaltsverzeichnis rechts neben langen Inhaltsseiten (Sprungziele per Skript, weil der Hash die Seite wählt) */
 function buildToc() {
@@ -2425,8 +2331,6 @@ function init() {
   $("#yr").textContent = String(new Date().getFullYear());
   buildChoose();
   try { buildAtlas(); } catch (e) { console.error(e); }
-  try { buildSample(); } catch (e) { console.error(e); }
-  try { buildSkiSample(); } catch (e) { console.error(e); }
   initTheme();
   addEventListener("hashchange", route);
   route();
